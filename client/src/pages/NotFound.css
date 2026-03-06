@@ -1,0 +1,13 @@
+.not-found-page {
+    padding: 4rem 0 4.5rem;
+}
+
+.not-found-page__actions {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .not-found-page {
+        padding: 3.5rem 0 4rem;
+    }
+}

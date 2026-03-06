@@ -1,0 +1,157 @@
+.tech-hero {
+    padding: 4rem 0 5rem;
+}
+
+.tech-hero__container {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tech-hero__content h1 {
+    margin-top: 1rem;
+    font-size: clamp(2.8rem, 7vw, 5.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    font-weight: 900;
+    max-width: 11ch;
+}
+
+.tech-hero__content h1 span {
+    color: var(--accent);
+}
+
+.tech-hero__content p {
+    margin-top: 1.4rem;
+    max-width: 620px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.tech-hero__actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-hero__benefits {
+    margin-top: 1.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.tech-hero__benefits li {
+    min-height: 42px;
+    padding: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.tech-hero__visual {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-hero__glow {
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 107, 44, 0.22), transparent 70%);
+    filter: blur(16px);
+}
+
+.tech-hero__visual img {
+    width: min(100%, 560px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 2rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tech-hero__floating-card {
+    position: absolute;
+    right: 0;
+    bottom: 2rem;
+    z-index: 3;
+    max-width: 280px;
+    padding: 1.2rem;
+    backdrop-filter: blur(14px);
+}
+
+.tech-hero__floating-card span {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.tech-hero__floating-card strong {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+}
+
+.tech-hero__floating-card p {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+    .tech-hero__container {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-hero__content h1 {
+        max-width: 100%;
+    }
+
+    .tech-hero__visual {
+        min-height: auto;
+    }
+
+    .tech-hero__floating-card {
+        position: static;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .tech-hero {
+        padding-top: 2rem;
+    }
+
+    .tech-hero__content h1 {
+        font-size: clamp(2.4rem, 11vw, 4rem);
+    }
+
+    .tech-hero__content p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .tech-hero__benefits {
+        gap: 0.75rem;
+    }
+
+    .tech-hero__benefits li {
+        min-height: 40px;
+        font-size: 0.92rem;
+    }
+}

@@ -1,0 +1,63 @@
+.success-page {
+    padding: 4rem 0 4.5rem;
+}
+
+.success-page__title {
+    margin-top: 1rem;
+}
+
+.success-card {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.success-card__status {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text);
+}
+
+.success-card__status svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.success-card__status strong {
+    font-size: 1.08rem;
+}
+
+.success-card__message {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 62ch;
+}
+
+.success-card__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+    .success-page {
+        padding: 3.5rem 0 4rem;
+    }
+
+    .success-card {
+        padding: 1.4rem;
+    }
+
+    .success-card__actions {
+        display: grid;
+        width: 100%;
+    }
+
+    .success-card__actions .btn {
+        width: 100%;
+    }
+}
