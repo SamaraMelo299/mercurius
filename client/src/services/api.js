@@ -1,7 +1,26 @@
-const API_BASE_URL = 'http://localhost:3333/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3333/api'
 
-export async function getProducts() {
-  const response = await fetch(`${API_BASE_URL}/products`)
+export async function getProducts(filters = {}) {
+  const params = new URLSearchParams()
+
+  if (filters.category && filters.category !== 'all') {
+    params.append('category', filters.category)
+  }
+
+  if (filters.q) {
+    params.append('q', filters.q)
+  }
+
+  if (filters.sort && filters.sort !== 'default') {
+    params.append('sort', filters.sort)
+  }
+
+  const queryString = params.toString()
+  const url = queryString
+    ? `${API_BASE_URL}/products?${queryString}`
+    : `${API_BASE_URL}/products`
+
+  const response = await fetch(url)
 
   if (!response.ok) {
     throw new Error('Erro ao buscar produtos.')
