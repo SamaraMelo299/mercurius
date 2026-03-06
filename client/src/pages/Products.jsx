@@ -2,21 +2,39 @@ import { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ProductCard from '../components/ProductCard/ProductCard'
 import FilterBar from '../components/FilterBar/FilterBar'
-import productsData from '../data/products'
+import { getProducts } from '../services/api'
 import './Products.css'
 
 function Products() {
     const location = useLocation()
     const navigate = useNavigate()
 
+    const [productsData, setProductsData] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
     const [search, setSearch] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('all')
     const [sortBy, setSortBy] = useState('default')
 
+    useEffect(() => {
+        async function loadProducts() {
+            try {
+                const data = await getProducts()
+                setProductsData(data)
+            } catch (err) {
+                setError('Não foi possível carregar os produtos.')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadProducts()
+    }, [])
+
     const categories = useMemo(() => {
         const set = new Set(productsData.map((product) => product.category))
         return Array.from(set)
-    }, [])
+    }, [productsData])
 
     useEffect(() => {
         const params = new URLSearchParams(location.search)
@@ -63,13 +81,43 @@ function Products() {
         }
 
         return list
-    }, [search, selectedCategory, sortBy])
+    }, [productsData, search, selectedCategory, sortBy])
 
     function resetAll() {
         setSearch('')
         setSelectedCategory('all')
         setSortBy('default')
         navigate('/products', { replace: true })
+    }
+
+    if (loading) {
+        return (
+            <section className="products-section">
+                <div className="container">
+                    <div className="products-hero">
+                        <span className="badge">Catálogo</span>
+                        <h1 className="section-title products-title">Produtos</h1>
+                        <p className="section-subtitle products-subtitle">
+                            Carregando produtos...
+                        </p>
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    if (error) {
+        return (
+            <section className="products-section">
+                <div className="container">
+                    <div className="products-hero">
+                        <span className="badge">Catálogo</span>
+                        <h1 className="section-title products-title">Produtos</h1>
+                        <p className="section-subtitle products-subtitle">{error}</p>
+                    </div>
+                </div>
+            </section>
+        )
     }
 
     return (
@@ -88,6 +136,7 @@ function Products() {
 
                 <FilterBar
                     search={search}
+                    setSearch={setSearch}
                     selectedCategory={selectedCategory}
                     setSelectedCategory={setSelectedCategory}
                     sortBy={sortBy}

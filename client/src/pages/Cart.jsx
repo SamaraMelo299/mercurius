@@ -61,7 +61,10 @@ function Cart() {
                             {cartItems.map((item) => (
                                 <article key={item.id} className="cart-item card">
                                     <div className="cart-item__image">
-                                        <img src={item.image} alt={item.name} />
+                                        <img
+                                            src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`}
+                                            alt={item.name}
+                                        />
                                     </div>
 
                                     <div className="cart-item__content">

@@ -37,7 +37,10 @@ function ProductCard({ product }) {
                     className="tech-product-card__image-link"
                     aria-label={`Ver detalhes de ${product.name}`}
                 >
-                    <img src={product.image} alt={product.name} />
+                    <img
+                        src={`${import.meta.env.BASE_URL}${product.image.replace(/^\//, '')}`}
+                        alt={product.name}
+                    />
                 </Link>
             </div>
 

@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react'
 import Hero from '../components/Hero/Hero'
 import Categories from '../components/Categories/Categories'
 import ProductCard from '../components/ProductCard/ProductCard'
-import products from '../data/products'
+import { getProducts } from '../services/api'
 
 function Home() {
-    const featuredProducts = products.slice(0, 4)
+    const [featuredProducts, setFeaturedProducts] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        async function loadFeaturedProducts() {
+            try {
+                const data = await getProducts()
+                setFeaturedProducts(data.slice(0, 4))
+            } catch (err) {
+                setError('Não foi possível carregar os produtos em destaque.')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadFeaturedProducts()
+    }, [])
 
     return (
         <>
@@ -22,11 +40,17 @@ function Home() {
                         </p>
                     </div>
 
-                    <div className="products-grid">
-                        {featuredProducts.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
-                    </div>
+                    {loading ? (
+                        <p className="section-subtitle">Carregando produtos em destaque...</p>
+                    ) : error ? (
+                        <p className="section-subtitle">{error}</p>
+                    ) : (
+                        <div className="products-grid">
+                            {featuredProducts.map((product) => (
+                                <ProductCard key={product.id} product={product} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </>

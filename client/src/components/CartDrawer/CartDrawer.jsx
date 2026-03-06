@@ -71,8 +71,10 @@ function CartDrawer() {
                 <div className="tech-cart-drawer__content">
                     {cartItems.length === 0 ? (
                         <div className="tech-cart-drawer__empty">
-                            <p>Seu carrinho está vazio.
-                                Adicione produtos e monte seu setup com a Mercurius.</p>
+                            <p>
+                                Seu carrinho está vazio. Adicione produtos e monte seu setup com a
+                                Mercurius.
+                            </p>
 
                             <Link
                                 to="/products"
@@ -88,7 +90,7 @@ function CartDrawer() {
                                 <article key={item.id} className="tech-cart-item">
                                     <img
                                         className="tech-cart-item__img"
-                                        src={item.image}
+                                        src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`}
                                         alt={item.name}
                                     />
 

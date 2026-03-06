@@ -1,19 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FiCheckCircle } from 'react-icons/fi'
-import { useEffect, useRef } from 'react'
-import { useCart } from '../hooks/useCart'
 
 function Success() {
-    const { clearCart } = useCart()
-    const hasClearedRef = useRef(false)
-
-    useEffect(() => {
-        if (!hasClearedRef.current) {
-            clearCart()
-            hasClearedRef.current = true
-        }
-    }, [clearCart])
-
     return (
         <section className="section">
             <div className="container">
@@ -24,8 +12,8 @@ function Success() {
                 </h1>
 
                 <p className="section-subtitle">
-                    Seu pedido foi registrado de forma simulada. Você pode continuar
-                    navegando ou voltar ao catálogo.
+                    Seu pedido foi registrado com sucesso. Você pode continuar navegando ou voltar
+                    ao catálogo.
                 </p>
 
                 <div

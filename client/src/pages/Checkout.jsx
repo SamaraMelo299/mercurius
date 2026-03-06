@@ -2,12 +2,13 @@ import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FiLock } from 'react-icons/fi'
 import { useCart } from '../hooks/useCart'
+import { createOrder } from '../services/api'
 import formatPrice from '../utils/formatPrice'
 import './Checkout.css'
 
 function Checkout() {
     const navigate = useNavigate()
-    const { cartItems, cartTotal } = useCart()
+    const { cartItems, cartTotal, clearCart } = useCart()
 
     const [form, setForm] = useState({
         name: '',
@@ -19,6 +20,8 @@ function Checkout() {
         state: '',
         payment: 'card',
     })
+
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     const shipping = useMemo(() => {
         if (cartTotal >= 800) return 0
@@ -32,7 +35,7 @@ function Checkout() {
         setForm((prev) => ({ ...prev, [name]: value }))
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
 
         if (!form.name || !form.email || !form.zip || !form.address) {
@@ -45,7 +48,34 @@ function Checkout() {
             return
         }
 
-        navigate('/success', { replace: true })
+        try {
+            setIsSubmitting(true)
+
+            const orderPayload = {
+                customer: {
+                    name: form.name,
+                    email: form.email,
+                    phone: form.phone,
+                    zip: form.zip,
+                    address: form.address,
+                    city: form.city,
+                    state: form.state,
+                },
+                items: cartItems.map((item) => ({
+                    productId: item.id,
+                    quantity: item.quantity,
+                })),
+                payment: form.payment,
+            }
+
+            await createOrder(orderPayload)
+            clearCart()
+            navigate('/success', { replace: true })
+        } catch (error) {
+            alert(error.message || 'Não foi possível confirmar o pedido.')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -53,9 +83,7 @@ function Checkout() {
             <div className="container">
                 <span className="badge">Checkout</span>
 
-                <h1 className="section-title checkout-page__title">
-                    Finalize seu pedido
-                </h1>
+                <h1 className="section-title checkout-page__title">Finalize seu pedido</h1>
 
                 <p className="section-subtitle">
                     Preencha seus dados, escolha a forma de pagamento e revise o resumo da compra
@@ -172,9 +200,13 @@ function Checkout() {
                             </label>
                         </div>
 
-                        <button type="submit" className="btn btn-primary checkout-form__submit">
+                        <button
+                            type="submit"
+                            className="btn btn-primary checkout-form__submit"
+                            disabled={isSubmitting}
+                        >
                             <FiLock />
-                            Confirmar pedido
+                            {isSubmitting ? 'Confirmando pedido...' : 'Confirmar pedido'}
                         </button>
 
                         <Link to="/cart" className="btn btn-secondary checkout-form__back">
@@ -202,9 +234,7 @@ function Checkout() {
                                                 </span>
                                             </div>
 
-                                            <strong>
-                                                {formatPrice(item.price * item.quantity)}
-                                            </strong>
+                                            <strong>{formatPrice(item.price * item.quantity)}</strong>
                                         </div>
                                     ))}
                                 </div>

@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { FiShoppingBag, FiArrowLeft } from 'react-icons/fi'
-import products from '../data/products'
+import { getProductBySlug } from '../services/api'
 import formatPrice from '../utils/formatPrice'
 import { useCart } from '../hooks/useCart'
 import './ProductDetails.css'
@@ -9,15 +10,48 @@ function ProductDetails() {
     const { slug } = useParams()
     const { addToCart } = useCart()
 
-    const product = products.find((item) => item.slug === slug)
+    const [product, setProduct] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
 
-    if (!product) {
+    useEffect(() => {
+        async function loadProduct() {
+            try {
+                const data = await getProductBySlug(slug)
+                setProduct(data)
+            } catch (err) {
+                setError('O item que você tentou acessar não existe ou não está disponível.')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadProduct()
+    }, [slug])
+
+    function handleAddToCart() {
+        if (product) {
+            addToCart(product)
+        }
+    }
+
+    if (loading) {
+        return (
+            <section className="section">
+                <div className="container">
+                    <h1 className="section-title">Carregando produto...</h1>
+                </div>
+            </section>
+        )
+    }
+
+    if (error || !product) {
         return (
             <section className="section">
                 <div className="container">
                     <h1 className="section-title">Produto não encontrado</h1>
                     <p className="section-subtitle">
-                        O item que você tentou acessar não existe ou não está disponível.
+                        {error || 'O item que você tentou acessar não existe ou não está disponível.'}
                     </p>
 
                     <div style={{ marginTop: '1.5rem' }}>
@@ -28,10 +62,6 @@ function ProductDetails() {
                 </div>
             </section>
         )
-    }
-
-    function handleAddToCart() {
-        addToCart(product)
     }
 
     return (
@@ -45,7 +75,10 @@ function ProductDetails() {
                 <div className="product-details">
                     <div className="product-details__image card">
                         <span className="product-details__badge">{product.badge}</span>
-                        <img src={product.image} alt={product.name} />
+                        <img
+                            src={`${import.meta.env.BASE_URL}${product.image.replace(/^\//, '')}`}
+                            alt={product.name}
+                        />
                     </div>
 
                     <div className="product-details__content">
