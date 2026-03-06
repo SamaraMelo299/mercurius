@@ -83,6 +83,7 @@
     z-index: 2;
     box-shadow: var(--shadow-lg);
     border: 1px solid rgba(255, 255, 255, 0.06);
+    display: block;
 }
 
 .tech-hero__floating-card {
@@ -90,6 +91,7 @@
     right: 0;
     bottom: 2rem;
     z-index: 3;
+    width: 100%;
     max-width: 280px;
     padding: 1.2rem;
     backdrop-filter: blur(14px);
@@ -116,6 +118,7 @@
 @media (max-width: 960px) {
     .tech-hero__container {
         grid-template-columns: 1fr;
+        gap: 2.25rem;
     }
 
     .tech-hero__content h1 {
@@ -124,10 +127,32 @@
 
     .tech-hero__visual {
         min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .tech-hero__glow {
+        width: 100%;
+        max-width: 420px;
+        height: 320px;
+        left: 50%;
+        top: 12%;
+        transform: translateX(-50%);
+    }
+
+    .tech-hero__visual img {
+        width: 100%;
+        max-width: 100%;
     }
 
     .tech-hero__floating-card {
         position: static;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 100%;
         margin-top: 1rem;
     }
 }
@@ -135,15 +160,27 @@
 @media (max-width: 640px) {
     .tech-hero {
         padding-top: 2rem;
+        padding-bottom: 3.5rem;
     }
 
     .tech-hero__content h1 {
         font-size: clamp(2.4rem, 11vw, 4rem);
+        line-height: 0.98;
     }
 
     .tech-hero__content p {
         font-size: 1rem;
         line-height: 1.7;
+    }
+
+    .tech-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tech-hero__actions .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .tech-hero__benefits {
@@ -153,5 +190,23 @@
     .tech-hero__benefits li {
         min-height: 40px;
         font-size: 0.92rem;
+    }
+
+    .tech-hero__visual img {
+        border-radius: 1.5rem;
+    }
+
+    .tech-hero__floating-card {
+        padding: 1rem;
+        border-radius: 1.25rem;
+    }
+
+    .tech-hero__floating-card strong {
+        font-size: 1rem;
+    }
+
+    .tech-hero__floating-card p {
+        font-size: 0.95rem;
+        line-height: 1.55;
     }
 }
