@@ -13,11 +13,8 @@ function Hero() {
             <span> moderno, potente e funcional</span>
           </h1>
 
-          <p>
-            Explore notebooks, monitores, headsets e periféricos com design
-            refinado, alta performance e uma experiência visual pensada para
-            elevar este projeto a um e-commerce tech mais forte para portfólio.
-          </p>
+          Descubra notebooks, monitores, headsets e periféricos com design premium, alta
+          performance e uma curadoria pensada para setups modernos, produtivos e bem construídos.
 
           <div className="tech-hero__actions">
             <Link to="/products" className="btn btn-primary">
@@ -30,9 +27,9 @@ function Hero() {
           </div>
 
           <ul className="tech-hero__benefits">
-            <li>Frete grátis</li>
+            <li>Produtos selecionados</li>
             <li>Compra segura</li>
-            <li>Lançamentos em destaque</li>
+            <li>Performance premium</li>
           </ul>
         </div>
 
@@ -47,7 +44,7 @@ function Hero() {
           <div className="tech-hero__floating-card card">
             <span>Destaque da semana</span>
             <strong>AstraBook Pro 14</strong>
-            <p>Design premium, mobilidade e performance para setups modernos.</p>
+            <p>Notebook premium com visual refinado, alta mobilidade e desempenho ideal para rotinas exigentes.</p>
           </div>
         </div>
       </div>

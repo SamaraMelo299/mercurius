@@ -4,42 +4,42 @@ import './Categories.css'
 const base = import.meta.env.BASE_URL
 
 const categories = [
-    {
-        title: 'Notebooks',
-        description: 'Modelos premium para produtividade, estudo e criação.',
-        image: `${base}images/products/notebooks/astrabook-pro-14.jpg`,
-        slug: 'Notebooks',
-    },
-    {
-        title: 'Monitores',
-        description: 'Mais definição, espaço visual e imersão para seu setup.',
-        image: `${base}images/products/monitors/nebulaview-34.jpg`,
-        slug: 'Monitores',
-    },
-    {
-        title: 'Headsets',
-        description: 'Áudio de qualidade para trabalho, chamadas e entretenimento.',
-        image: `${base}images/products/headsets/novawave-x.jpg`,
-        slug: 'Headsets',
-    },
-    {
-        title: 'Teclados',
-        description: 'Mais conforto, precisão e presença visual na sua mesa.',
-        image: `${base}images/products/keyboards/novakeys-tkl.jpg`,
-        slug: 'Teclados',
-    },
-    {
-        title: 'Mouses',
-        description: 'Controle, ergonomia e desempenho para diferentes rotinas.',
-        image: `${base}images/products/mice/orbitmouse-pro.jpg`,
-        slug: 'Mouses',
-    },
-    {
-        title: 'Acessórios',
-        description: 'Complementos essenciais para um setup moderno e funcional.',
-        image: `${base}images/products/accessories/nebulapad.jpg`,
-        slug: 'Acessorios',
-    },
+  {
+    title: 'Notebooks',
+    description: 'Modelos premium para produtividade, estudo e rotina profissional.',
+    image: `${base}images/products/notebooks/astrabook-pro-14.jpg`,
+    slug: 'Notebooks',
+  },
+  {
+    title: 'Monitores',
+    description: 'Mais definição, espaço visual e imersão para o seu setup..',
+    image: `${base}images/products/monitors/nebulaview-34.jpg`,
+    slug: 'Monitores',
+  },
+  {
+    title: 'Headsets',
+    description: 'Áudio de qualidade para chamadas, foco e entretenimento.',
+    image: `${base}images/products/headsets/novawave-x.jpg`,
+    slug: 'Headsets',
+  },
+  {
+    title: 'Teclados',
+    description: 'Conforto, precisão e presença visual para a sua mesa.',
+    image: `${base}images/products/keyboards/novakeys-tkl.jpg`,
+    slug: 'Teclados',
+  },
+  {
+    title: 'Mouses',
+    description: 'Conforto, precisão e presença visual para a sua mesa.',
+    image: `${base}images/products/mice/orbitmouse-pro.jpg`,
+    slug: 'Mouses',
+  },
+  {
+    title: 'Acessórios',
+    description: 'Complementos essenciais para um setup mais funcional e moderno',
+    image: `${base}images/products/accessories/nebulapad.jpg`,
+    slug: 'Acessorios',
+  },
 ]
 
 function Categories() {

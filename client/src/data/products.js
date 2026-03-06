@@ -14,7 +14,7 @@ const products = [
         image: `${base}images/products/notebooks/astrabook-air-13.jpg`,
         badge: "Leve",
         description:
-            "Notebook ultrafino com design premium, ideal para produtividade e mobilidade.",
+            "Notebook ultrafino com acabamento premium, ideal para produtividade e mobilidade no dia a dia.",
     },
     {
         id: 2,
@@ -26,7 +26,7 @@ const products = [
         image: `${base}images/products/notebooks/astrabook-pro-14.jpg`,
         badge: "Destaque",
         description:
-            "Performance avançada com construção em alumínio e tela de alta definição.",
+            "Desempenho avançado, estrutura em alumínio e tela de alta definição para uma rotina mais exigente.",
     },
     {
         id: 3,
@@ -38,7 +38,7 @@ const products = [
         image: `${base}images/products/notebooks/orbitbook-ultra-15.jpg`,
         badge: "Performance",
         description:
-            "Notebook poderoso para multitarefas intensas e fluxos de trabalho exigentes.",
+            "Potência para multitarefas intensas, fluxos exigentes e uma experiência mais robusta de uso.",
     },
     {
         id: 4,
@@ -50,7 +50,7 @@ const products = [
         image: `${base}images/products/notebooks/novabook-x-14.jpg`,
         badge: "Novo",
         description:
-            "Equilíbrio entre mobilidade, performance e autonomia de bateria.",
+            "Equilíbrio entre desempenho, autonomia e mobilidade para rotinas versáteis.",
     },
 
     // =========================
@@ -66,7 +66,7 @@ const products = [
         image: `${base}images/products/monitors/orbitview-24.jpg`,
         badge: "Full HD",
         description:
-            "Monitor de 24 polegadas com painel IPS e cores vibrantes.",
+            "Monitor Full HD com painel IPS e cores vibrantes para trabalho e entretenimento.",
     },
     {
         id: 6,
@@ -78,7 +78,7 @@ const products = [
         image: `${base}images/products/monitors/orbitview-27-pro.jpg`,
         badge: "Pro",
         description:
-            "Monitor de 27 polegadas ideal para produtividade e criação visual.",
+            "Mais área útil, nitidez e conforto visual para produtividade e criação.",
     },
     {
         id: 7,
@@ -90,7 +90,7 @@ const products = [
         image: `${base}images/products/monitors/nebulaview-34.jpg`,
         badge: "UltraWide",
         description:
-            "Monitor ultrawide imersivo ideal para setups profissionais e criativos.",
+            "Experiência imersiva e amplo espaço visual para setups criativos e profissionais.",
     },
 
     // =========================
@@ -106,7 +106,7 @@ const products = [
         image: `${base}images/products/headsets/nebulasound-one.jpg`,
         badge: "Áudio",
         description:
-            "Headset confortável com áudio imersivo para trabalho e entretenimento.",
+            "Headset confortável com áudio equilibrado para trabalho, chamadas e entretenimento.",
     },
     {
         id: 9,
@@ -118,7 +118,7 @@ const products = [
         image: `${base}images/products/headsets/nebulasound-pro.jpg`,
         badge: "Premium",
         description:
-            "Som cristalino com microfone otimizado para reuniões e streaming.",
+            "Som mais limpo, microfone otimizado e construção premium para uso profissional.",
     },
     {
         id: 10,
@@ -130,7 +130,7 @@ const products = [
         image: `${base}images/products/headsets/novawave-x.jpg`,
         badge: "Wireless",
         description:
-            "Headset sem fio com baixa latência e alta fidelidade sonora.",
+            "Headset sem fio com baixa latência e desempenho consistente para o dia a dia.",
     },
 
     // =========================
@@ -146,7 +146,7 @@ const products = [
         image: `${base}images/products/keyboards/novakeys-tkl.jpg`,
         badge: "Compacto",
         description:
-            "Teclado mecânico compacto com iluminação RGB.",
+            "Teclado mecânico compacto com resposta precisa e visual marcante para setups modernos.",
     },
     {
         id: 12,
@@ -174,7 +174,7 @@ const products = [
         image: `${base}images/products/mice/orbitmouse-air.jpg`,
         badge: "Leve",
         description:
-            "Mouse ergonômico leve e preciso para uso diário.",
+            "Mouse ergonômico leve e preciso para produtividade, navegação e uso contínuo.",
     },
     {
         id: 14,
@@ -186,7 +186,7 @@ const products = [
         image: `${base}images/products/mice/orbitmouse-pro.jpg`,
         badge: "Precision",
         description:
-            "Mouse de alta precisão com sensor avançado e design ergonômico.",
+            "Mouse de alta precisão com sensor avançado e ergonomia pensada para mais controle.",
     },
 
     // =========================
@@ -202,7 +202,7 @@ const products = [
         image: `${base}images/products/accessories/novadock-hub.jpg`,
         badge: "USB-C",
         description:
-            "Hub USB-C com múltiplas portas para expandir seu setup.",
+            "Hub USB-C com múltiplas conexões para expandir seu setup com mais praticidade.",
     },
     {
         id: 16,
@@ -214,7 +214,7 @@ const products = [
         image: `${base}images/products/accessories/nebulapad.jpg`,
         badge: "Deskmat",
         description:
-            "Mousepad extra grande com superfície suave e base antiderrapante.",
+            "Mousepad extra grande com superfície suave e base antiderrapante para maior estabilidade.",
     },
 ]
 

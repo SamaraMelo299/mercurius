@@ -71,14 +71,15 @@ function CartDrawer() {
                 <div className="tech-cart-drawer__content">
                     {cartItems.length === 0 ? (
                         <div className="tech-cart-drawer__empty">
-                            <p>Seu carrinho está vazio.</p>
+                            <p>Seu carrinho está vazio.
+                                Adicione produtos e monte seu setup com a Mercurius.</p>
 
                             <Link
                                 to="/products"
                                 className="btn btn-primary"
                                 onClick={closeCart}
                             >
-                                Ver produtos
+                                Explorar produtos
                             </Link>
                         </div>
                     ) : (
@@ -154,12 +155,12 @@ function CartDrawer() {
                         </Link>
 
                         <Link to="/checkout" className="btn btn-primary" onClick={closeCart}>
-                            Checkout
+                            Finalizar compra
                         </Link>
                     </div>
 
                     <p className="tech-cart-drawer__hint">
-                        Pressione <strong>Esc</strong> para fechar
+                        Revise seus itens antes de seguir para a finalização da compra.
                     </p>
                 </div>
             </aside>
