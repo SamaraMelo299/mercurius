@@ -102,7 +102,7 @@ function Header() {
                 <div className="container tech-header__container">
                     <Link to="/" className="tech-header__brand" onClick={closeMenu}>
                         <img
-                            src="/logo/mercurius-logo.png"
+                            src={`${import.meta.env.BASE_URL}logo/mercurius-logo.png`}
                             alt="Mercurius"
                             className="tech-header__logo"
                         />
