@@ -1,41 +1,43 @@
 import { Link } from 'react-router-dom'
 import './Categories.css'
 
+const base = import.meta.env.BASE_URL
+
 const categories = [
     {
         title: 'Notebooks',
         description: 'Modelos premium para produtividade, estudo e criação.',
-        image: '/images/products/notebooks/astrabook-pro-14.jpg',
+        image: `${base}images/products/notebooks/astrabook-pro-14.jpg`,
         slug: 'Notebooks',
     },
     {
         title: 'Monitores',
         description: 'Mais definição, espaço visual e imersão para seu setup.',
-        image: '/images/products/monitors/nebulaview-34.jpg',
+        image: `${base}images/products/monitors/nebulaview-34.jpg`,
         slug: 'Monitores',
     },
     {
         title: 'Headsets',
         description: 'Áudio de qualidade para trabalho, chamadas e entretenimento.',
-        image: '/images/products/headsets/novawave-x.jpg',
+        image: `${base}images/products/headsets/novawave-x.jpg`,
         slug: 'Headsets',
     },
     {
         title: 'Teclados',
         description: 'Mais conforto, precisão e presença visual na sua mesa.',
-        image: '/images/products/keyboards/novakeys-tkl.jpg',
+        image: `${base}images/products/keyboards/novakeys-tkl.jpg`,
         slug: 'Teclados',
     },
     {
         title: 'Mouses',
         description: 'Controle, ergonomia e desempenho para diferentes rotinas.',
-        image: '/images/products/mice/orbitmouse-pro.jpg',
+        image: `${base}images/products/mice/orbitmouse-pro.jpg`,
         slug: 'Mouses',
     },
     {
         title: 'Acessórios',
         description: 'Complementos essenciais para um setup moderno e funcional.',
-        image: '/images/products/accessories/nebulapad.jpg',
+        image: `${base}images/products/accessories/nebulapad.jpg`,
         slug: 'Acessorios',
     },
 ]

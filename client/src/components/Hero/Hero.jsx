@@ -40,7 +40,7 @@ function Hero() {
           <div className="tech-hero__glow"></div>
 
           <img
-            src="/images/hero/tech-hero-main.jpg"
+            src={`${import.meta.env.BASE_URL}images/hero/alguma-imagem.jpg`}
             alt="Setup premium em destaque"
           />
 
