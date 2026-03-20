@@ -1,4 +1,8 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3333/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL
+
+if (!API_BASE_URL) {
+  throw new Error('VITE_API_URL não foi definida.')
+}
 
 export async function getProducts(filters = {}) {
   const params = new URLSearchParams()
